@@ -1,0 +1,273 @@
+
+<!-- saved from url=(0063)http://web.engr.oregonstate.edu/~mjb/cs575/Projects/proj01.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>
+CS 475/575 Project #1
+</title>
+
+<style type="text/css"></style></head>
+
+<body background="./CS 475 575 Project #1_files/backgr.jpg">
+
+<center>
+<img src="./CS 475 575 Project #1_files/osu.jpg" align="center">
+<h2>CS 475/575 -- Spring Quarter 2014</h2>
+<h2>Project #1</h2>
+<h3>OpenMP: Numeric Integration with OpenMP</h3>
+<h3>100 Points</h3>
+<h3>Due: April 21</h3>
+</center>
+
+
+<p>
+</p><hr size="4">
+<p>
+
+<i>This page was last updated: April 8, 2014</i>
+
+
+</p><p>
+</p><hr size="4">
+<p>
+
+</p><h3>Introduction</h3>
+
+<p>
+Bézier surfaces are a way of dynamically sculpting shapes.
+Because they are analytically defined, they can be computed (and rendered)
+to any precision you want.
+In this project, we are going to take this Bézier surface:
+<br>
+<a href="http://web.engr.oregonstate.edu/~mjb/cs575/Projects/surface1.jpg"><img src="./CS 475 575 Project #1_files/surface1.thumb.jpg"></a>
+&nbsp;
+<a href="http://web.engr.oregonstate.edu/~mjb/cs575/Projects/surface2.jpg"><img src="./CS 475 575 Project #1_files/surface2.thumb.jpg"></a>
+<br>
+and use numerical techniques to find the volume between this surface
+and the horizontal X-Y (Z=0) plane.
+
+</p><p>
+The surface's "floor" is the X-Y plane (i.e., Z=0),
+Using some number of subdivisions in both X and Y, <tt>NUMSxNUMS</tt>,
+take NUMS<sup>2</sup> height samples.
+
+</p><p>
+We will think of each height sample as sitting on a 2D tile on the floor.
+That really makes that height sample act as a volume where the tile
+is extruded vertically from the floor to the height.
+
+</p><p>
+The tiles in the middle of the floor are full-sized tiles.
+Tiles along the edges are half-sized.
+Tiles in the corners are quarter-sized.
+The volume contribution of each extruded height tile needs
+to be weighted accordingly.
+The logic of this is for you to figure out.
+
+
+</p><p>
+</p><h3>Requirements</h3>
+
+<p>
+</p><li>
+Using OpenMP, compute the total volume under the surface.
+
+<p>
+</p></li><li>
+Use a variety of number of subdivisions (NUMS).
+
+<p>
+</p></li><li>
+Use a variety of number of threads (NUMT).
+
+<p>
+</p></li><li>
+Record the data in units of something that gets larger as speed increases.
+Joe Parallel used "MegaHeights Computed Per Second",
+but you can use anything that makes sense.
+
+<p>
+</p></li><li>
+From the speed-up that you are seeing,
+use the "Inverse Amdajl's law" to determine the Parallel Fraction
+for this application.
+
+<p>
+</p></li><li>
+From the Parallel Fraction, determine what maximum speed-up you could <i>ever</i> get,
+even with a million cores.
+
+<p>
+</p></li><li>
+Your commentary write-up (turned in as a PDF file) should include:
+<ol>
+<li>Tell what machine you ran this on
+</li><li>What do you think the actual volume is?
+</li><li>Show the performances you achieved in tables and graphs as a function of NUMS and NUMT
+</li><li>What patterns are you seeing in the speeds?
+</li><li>Why do you think it is behaving this way?
+</li><li>What is the Parallel Fraction for this application?
+</li><li>What is the maximum speed-up you could <i>ever</i> get?
+</li></ol>
+
+
+
+<p>
+</p><h3>The Height-Evaluation Code</h3>
+
+<p>
+In this code sample, <tt>NUMS</tt> is the number of lines
+subdividing the floor area.
+So, for example, <tt>NUMS=4</tt> means that there is one line
+at each edge and two lines in the interior like this.
+<br>
+<a href="http://web.engr.oregonstate.edu/~mjb/cs575/Projects/grid01.jpg"><img src="./CS 475 575 Project #1_files/grid01.thumb.jpg"></a>
+
+</p><p>
+I recommend a single for-loop over all the nodes that looks like this:
+<br>
+</p><pre><tt>
+for( int i = 0; i &lt; NUMS*NUMS; i++ )
+{
+	int iu = i % NUMS;
+	int iv = i / NUMS;
+
+	. . .
+}
+</tt></pre>
+
+<p>
+The code to evatuate the height at a given <i>iu</i> and <i>iv</i> is:
+
+</p><pre><tt>
+#define XMIN	 0.
+#define XMAX	 3.
+#define YMIN	 0.
+#define YMAX	 3.
+
+#define Z00	0.
+#define Z10	1.
+#define Z20	0.
+#define Z30	0.
+
+#define Z01	1.
+#define Z11	6.
+#define Z21	1.
+#define Z31	0.
+
+#define Z02	0.
+#define Z12	1.
+#define Z22	0.
+#define Z32	4.
+
+#define Z03	3.
+#define Z13	2.
+#define Z23	3.
+#define Z33	3.
+
+float
+Height( int iu, int iv )	// iu,iv = 0 .. NUMS-1
+{
+	float u = (float)iu / (float)(NUMS-1);
+	float v = (float)iv / (float)(NUMS-1);
+
+	// the basis functions:
+
+	float bu0 = (1.-u) * (1.-u) * (1.-u);
+	float bu1 = 3. * u * (1.-u) * (1.-u);
+	float bu2 = 3. * u * u * (1.-u);
+	float bu3 = u * u * u;
+
+	float bv0 = (1.-v) * (1.-v) * (1.-v);
+	float bv1 = 3. * v * (1.-v) * (1.-v);
+	float bv2 = 3. * v * v * (1.-v);
+	float bv3 = v * v * v;
+
+	// finally, we get to compute something:
+
+	float height = 	  bu0 * ( bv0*Z00 + bv1*Z01 + bv2*Z02 + bv3*Z03 )
+			+ bu1 * ( bv0*Z10 + bv1*Z11 + bv2*Z12 + bv3*Z13 )
+			+ bu2 * ( bv0*Z20 + bv1*Z21 + bv2*Z22 + bv3*Z23 )
+			+ bu3 * ( bv0*Z30 + bv1*Z31 + bv2*Z32 + bv3*Z33 );
+
+	return height;
+}
+</tt></pre>
+
+<p>
+</p><h3>The main Program</h3>
+
+<p>
+Your main program would then look something like this:
+
+</p><p>
+</p><pre><tt>
+float Height( int, int );
+
+int main( int argc, char *argv[ ] )
+{
+	. . .
+
+	// the area of a single full-sized tile:
+
+	float fullTileArea = (  ( (XMAX-XMIN)/(float)(NUMS-1) )  *  ( ( YMAX - YMIN )/(float)(NUMS-1) )  );
+
+	// sum up the weighted heights into the variable "volume"
+	// using an OpenMP for loop and an addition reduction:
+
+	?????
+
+	for( int i = 0; i &lt; NUMS*NUMS; i++ )
+	{
+		int iu = i % NUMS;
+		int iv = i / NUMS;
+
+		?????
+	}
+
+	. . .
+}
+</tt></pre>
+
+
+<!--
+<p>
+<h3>+5 Points Extra Credit</h3>
+
+<p>
+One use for autocorrelation is to uncover a recurring pattern in noisy data.
+A 201-element list of data values,
+<a href="mysterydata.txt">mysterydata.txt</a>,
+contains a hidden sine wave.
+<ol>
+<li>Plot the original data versus point number (0-200)
+<li>Perform a single autocorrelation on it
+<li>Plot the Results[*] array versus point number (0-200)
+<li>Based on that second plot, tell me what the period of the hidden sine wave is
+<li>Include all this in your write-up
+</ol>
+-->
+
+
+
+<p>
+</p><h3>Grading:</h3>
+
+<p>
+</p><center>
+<table border="1">
+<tbody><tr><th>Feature</th><th>Points
+</th></tr><tr><td>Results for a variety of NUMS values</td><td align="right">30
+</td></tr><tr><td>Results for a variety of NUMT values</td><td align="right">30
+</td></tr><tr><td>Commentary, including tables, graphs, correct volume, Parallel Fraction, and ultimate speedup</td><td align="right">40
+<!--
+<tr><td>Extra Credit<td align=right>5
+-->
+</td></tr><tr><th align="left">Potential Total</th><th align="right">100
+</th></tr></tbody></table>
+</center>
+
+
+
+
+</li></body></html>

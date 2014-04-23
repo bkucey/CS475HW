@@ -1,0 +1,455 @@
+called with theads:1 and nums:5\n
+With values Nums:5 and Numt:1
+Total time taken is:0.000012
+Volume found to be 13.928467
+With time precision 1e-09
+
+
+called with theads:2 and nums:5\n
+With values Nums:5 and Numt:2
+Total time taken is:0.000075
+Volume found to be 13.928467
+With time precision 1e-09
+
+
+called with theads:4 and nums:5\n
+With values Nums:5 and Numt:4
+Total time taken is:0.000129
+Volume found to be 13.928467
+With time precision 1e-09
+
+
+called with theads:6 and nums:5\n
+With values Nums:5 and Numt:6
+Total time taken is:0.000162
+Volume found to be 13.928467
+With time precision 1e-09
+
+
+called with theads:8 and nums:5\n
+With values Nums:5 and Numt:8
+Total time taken is:0.000234
+Volume found to be 13.928467
+With time precision 1e-09
+
+
+called with theads:1 and nums:10\n
+With values Nums:10 and Numt:1
+Total time taken is:0.000018
+Volume found to be 14.034979
+With time precision 1e-09
+
+
+called with theads:2 and nums:10\n
+With values Nums:10 and Numt:2
+Total time taken is:0.000073
+Volume found to be 14.034979
+With time precision 1e-09
+
+
+called with theads:4 and nums:10\n
+With values Nums:10 and Numt:4
+Total time taken is:0.000134
+Volume found to be 14.034979
+With time precision 1e-09
+
+
+called with theads:6 and nums:10\n
+With values Nums:10 and Numt:6
+Total time taken is:0.000183
+Volume found to be 14.034979
+With time precision 1e-09
+
+
+called with theads:8 and nums:10\n
+With values Nums:10 and Numt:8
+Total time taken is:0.000261
+Volume found to be 14.034979
+With time precision 1e-09
+
+
+called with theads:1 and nums:100\n
+With values Nums:100 and Numt:1
+Total time taken is:0.001073
+Volume found to be 14.062246
+With time precision 1e-09
+
+
+called with theads:2 and nums:100\n
+With values Nums:100 and Numt:2
+Total time taken is:0.000616
+Volume found to be 14.062262
+With time precision 1e-09
+
+
+called with theads:4 and nums:100\n
+With values Nums:100 and Numt:4
+Total time taken is:0.000376
+Volume found to be 14.062275
+With time precision 1e-09
+
+
+called with theads:6 and nums:100\n
+With values Nums:100 and Numt:6
+Total time taken is:0.000338
+Volume found to be 14.062269
+With time precision 1e-09
+
+
+called with theads:8 and nums:100\n
+With values Nums:100 and Numt:8
+Total time taken is:0.001053
+Volume found to be 14.062270
+With time precision 1e-09
+
+
+called with theads:1 and nums:200\n
+With values Nums:200 and Numt:1
+Total time taken is:0.004262
+Volume found to be 14.062411
+With time precision 1e-09
+
+
+called with theads:2 and nums:200\n
+With values Nums:200 and Numt:2
+Total time taken is:0.002202
+Volume found to be 14.062448
+With time precision 1e-09
+
+
+called with theads:4 and nums:200\n
+With values Nums:200 and Numt:4
+Total time taken is:0.001186
+Volume found to be 14.062444
+With time precision 1e-09
+
+
+called with theads:6 and nums:200\n
+With values Nums:200 and Numt:6
+Total time taken is:0.000888
+Volume found to be 14.062442
+With time precision 1e-09
+
+
+called with theads:8 and nums:200\n
+With values Nums:200 and Numt:8
+Total time taken is:0.000791
+Volume found to be 14.062445
+With time precision 1e-09
+
+
+called with theads:1 and nums:300\n
+With values Nums:300 and Numt:1
+Total time taken is:0.007520
+Volume found to be 14.062480
+With time precision 1e-09
+
+
+called with theads:2 and nums:300\n
+With values Nums:300 and Numt:2
+Total time taken is:0.004864
+Volume found to be 14.062464
+With time precision 1e-09
+
+
+called with theads:4 and nums:300\n
+With values Nums:300 and Numt:4
+Total time taken is:0.002516
+Volume found to be 14.062469
+With time precision 1e-09
+
+
+called with theads:6 and nums:300\n
+With values Nums:300 and Numt:6
+Total time taken is:0.001778
+Volume found to be 14.062484
+With time precision 1e-09
+
+
+called with theads:8 and nums:300\n
+With values Nums:300 and Numt:8
+Total time taken is:0.001444
+Volume found to be 14.062466
+With time precision 1e-09
+
+
+called with theads:1 and nums:400\n
+With values Nums:400 and Numt:1
+Total time taken is:0.016406
+Volume found to be 14.062512
+With time precision 1e-09
+
+
+called with theads:2 and nums:400\n
+With values Nums:400 and Numt:2
+Total time taken is:0.006863
+Volume found to be 14.062477
+With time precision 1e-09
+
+
+called with theads:4 and nums:400\n
+With values Nums:400 and Numt:4
+Total time taken is:0.004361
+Volume found to be 14.062471
+With time precision 1e-09
+
+
+called with theads:6 and nums:400\n
+With values Nums:400 and Numt:6
+Total time taken is:0.002996
+Volume found to be 14.062506
+With time precision 1e-09
+
+
+called with theads:8 and nums:400\n
+With values Nums:400 and Numt:8
+Total time taken is:0.002331
+Volume found to be 14.062492
+With time precision 1e-09
+
+
+called with theads:1 and nums:500\n
+With values Nums:500 and Numt:1
+Total time taken is:0.018572
+Volume found to be 14.062440
+With time precision 1e-09
+
+
+called with theads:2 and nums:500\n
+With values Nums:500 and Numt:2
+Total time taken is:0.011035
+Volume found to be 14.062538
+With time precision 1e-09
+
+
+called with theads:4 and nums:500\n
+With values Nums:500 and Numt:4
+Total time taken is:0.006749
+Volume found to be 14.062490
+With time precision 1e-09
+
+
+called with theads:6 and nums:500\n
+With values Nums:500 and Numt:6
+Total time taken is:0.004874
+Volume found to be 14.062502
+With time precision 1e-09
+
+
+called with theads:8 and nums:500\n
+With values Nums:500 and Numt:8
+Total time taken is:0.003561
+Volume found to be 14.062489
+With time precision 1e-09
+
+
+called with theads:1 and nums:600\n
+With values Nums:600 and Numt:1
+Total time taken is:0.025624
+Volume found to be 14.062388
+With time precision 1e-09
+
+
+called with theads:2 and nums:600\n
+With values Nums:600 and Numt:2
+Total time taken is:0.013276
+Volume found to be 14.062536
+With time precision 1e-09
+
+
+called with theads:4 and nums:600\n
+With values Nums:600 and Numt:4
+Total time taken is:0.007769
+Volume found to be 14.062469
+With time precision 1e-09
+
+
+called with theads:6 and nums:600\n
+With values Nums:600 and Numt:6
+Total time taken is:0.006534
+Volume found to be 14.062520
+With time precision 1e-09
+
+
+called with theads:8 and nums:600\n
+With values Nums:600 and Numt:8
+Total time taken is:0.004820
+Volume found to be 14.062493
+With time precision 1e-09
+
+
+called with theads:1 and nums:700\n
+With values Nums:700 and Numt:1
+Total time taken is:0.041940
+Volume found to be 14.062338
+With time precision 1e-09
+
+
+called with theads:2 and nums:700\n
+With values Nums:700 and Numt:2
+Total time taken is:0.018245
+Volume found to be 14.062664
+With time precision 1e-09
+
+
+called with theads:4 and nums:700\n
+With values Nums:700 and Numt:4
+Total time taken is:0.012143
+Volume found to be 14.062532
+With time precision 1e-09
+
+
+called with theads:6 and nums:700\n
+With values Nums:700 and Numt:6
+Total time taken is:0.008852
+Volume found to be 14.062546
+With time precision 1e-09
+
+
+called with theads:8 and nums:700\n
+With values Nums:700 and Numt:8
+Total time taken is:0.006726
+Volume found to be 14.062510
+With time precision 1e-09
+
+
+called with theads:1 and nums:800\n
+With values Nums:800 and Numt:1
+Total time taken is:0.044269
+Volume found to be 14.061663
+With time precision 1e-09
+
+
+called with theads:2 and nums:800\n
+With values Nums:800 and Numt:2
+Total time taken is:0.022709
+Volume found to be 14.062190
+With time precision 1e-09
+
+
+called with theads:4 and nums:800\n
+With values Nums:800 and Numt:4
+Total time taken is:0.015998
+Volume found to be 14.062479
+With time precision 1e-09
+
+
+called with theads:6 and nums:800\n
+With values Nums:800 and Numt:6
+Total time taken is:0.009186
+Volume found to be 14.062431
+With time precision 1e-09
+
+
+called with theads:8 and nums:800\n
+With values Nums:800 and Numt:8
+Total time taken is:0.008723
+Volume found to be 14.062480
+With time precision 1e-09
+
+
+called with theads:1 and nums:1000\n
+With values Nums:1000 and Numt:1
+Total time taken is:0.068759
+Volume found to be 14.062201
+With time precision 1e-09
+
+
+called with theads:2 and nums:1000\n
+With values Nums:1000 and Numt:2
+Total time taken is:0.037079
+Volume found to be 14.062050
+With time precision 1e-09
+
+
+called with theads:4 and nums:1000\n
+With values Nums:1000 and Numt:4
+Total time taken is:0.021880
+Volume found to be 14.062180
+With time precision 1e-09
+
+
+called with theads:6 and nums:1000\n
+With values Nums:1000 and Numt:6
+Total time taken is:0.015308
+Volume found to be 14.062480
+With time precision 1e-09
+
+
+called with theads:8 and nums:1000\n
+With values Nums:1000 and Numt:8
+Total time taken is:0.010399
+Volume found to be 14.062507
+With time precision 1e-09
+
+
+called with theads:1 and nums:4000\n
+With values Nums:4000 and Numt:1
+Total time taken is:1.081862
+Volume found to be 13.716697
+With time precision 1e-09
+
+
+called with theads:2 and nums:4000\n
+With values Nums:4000 and Numt:2
+Total time taken is:0.536608
+Volume found to be 14.055008
+With time precision 1e-09
+
+
+called with theads:4 and nums:4000\n
+With values Nums:4000 and Numt:4
+Total time taken is:0.273900
+Volume found to be 14.005821
+With time precision 1e-09
+
+
+called with theads:6 and nums:4000\n
+With values Nums:4000 and Numt:6
+Total time taken is:0.182269
+Volume found to be 14.036446
+With time precision 1e-09
+
+
+called with theads:8 and nums:4000\n
+With values Nums:4000 and Numt:8
+Total time taken is:0.139353
+Volume found to be 14.056487
+With time precision 1e-09
+
+
+called with theads:1 and nums:8000\n
+With values Nums:8000 and Numt:1
+Total time taken is:4.275229
+Volume found to be 8.000000
+With time precision 1e-09
+
+
+called with theads:2 and nums:8000\n
+With values Nums:8000 and Numt:2
+Total time taken is:2.142756
+Volume found to be 12.821306
+With time precision 1e-09
+
+
+called with theads:4 and nums:8000\n
+With values Nums:8000 and Numt:4
+Total time taken is:1.082351
+Volume found to be 14.095909
+With time precision 1e-09
+
+
+called with theads:6 and nums:8000\n
+With values Nums:8000 and Numt:6
+Total time taken is:0.742694
+Volume found to be 14.028314
+With time precision 1e-09
+
+
+called with theads:8 and nums:8000\n
+With values Nums:8000 and Numt:8
+Total time taken is:0.541150
+Volume found to be 14.034375
+With time precision 1e-09
+
+

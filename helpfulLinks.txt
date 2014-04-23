@@ -1,0 +1,7 @@
+http://msdn.microsoft.com/en-us/library/36k2cdd4.aspx
+http://www.cplusplus.com/reference/cstdio/printf/
+http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap
+http://www.calpoly.edu/~rasplund/script.html
+http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-2.html
+http://superuser.com/questions/374406/why-do-i-get-not-found-when-running-a-script
+http://stackoverflow.com/questions/7362504/bash-script-always-prints-command-not-found
