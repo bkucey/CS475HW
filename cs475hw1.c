@@ -60,44 +60,44 @@ float Height( int iu, int iv )	// iu,iv = 0 .. NUMS-1
 
 int main( int argc, char *argv[ ] )
 {
-    omp_set_num_threads(NUMT);
-    printf("With values Nums:%d and Numt:%d\n",NUMS,NUMT); 
-    // start the timings. . .
-    double time0 = omp_get_wtime();
+	omp_set_num_threads(NUMT);
+	printf("With values Nums:%d and Numt:%d\n",NUMS,NUMT); 
+	// start the timings. . .
+	double time0 = omp_get_wtime();
     
 	// the area of a single full-sized tile: 
 	float fullTileArea = (  ( (XMAX-XMIN)/(float)(NUMS-1) )  *  ( ( YMAX - YMIN )/(float)(NUMS-1) )  );
 
 	// sum up the weighted heights into the variable "volume"
-    float volume = 0;//starts out with nothing
+	float volume = 0;//starts out with nothing
 	// using an OpenMP for loop and an addition reduction:
 
 	//TODO do the pragma thing ?????
-    #pragma omp parallel for default(none), reduction(+:volume), shared(fullTileArea)
+	#pragma omp parallel for default(none), reduction(+:volume), shared(fullTileArea)
 	for( int i = 0; i < NUMS*NUMS; i++ )
 	{
 		//printf("Hello with i:%d from thread :%d\n",i,omp_get_thread_num());
         
-        int iu = i % NUMS;
+		int iu = i % NUMS;
 		int iv = i / NUMS;
 
-        float addThis =  fullTileArea * Height(iu, iv);//TODO get the sum added here?????
-        if(iu == 0 || iu == NUMS -1){
-            if(iv == 0 || iv == NUMS -1){
-                addThis *= 0.25;
-            }else{
-                addThis *= 0.5;
-            }
-        }else if(iv == 0 || iv == NUMS - 1){
-            addThis *= 0.5;
-        }
+		float addThis =  fullTileArea * Height(iu, iv);//TODO get the sum added here?????
+		if(iu == 0 || iu == NUMS -1){
+			if(iv == 0 || iv == NUMS -1){
+				addThis *= 0.25;
+			}else{
+				addThis *= 0.5;
+			}
+		}else if(iv == 0 || iv == NUMS - 1){
+			addThis *= 0.5;
+		}
 		volume += addThis;
 	}
 
 	//TODO get the timings. . .
-    double time1 = omp_get_wtime();
-    double timeUsed = time1 - time0;
-    printf("Total time taken is:%lf\n",timeUsed);
-    printf("Volume found to be %f\n",volume);
-    printf("With time precision %g\n\n\n", omp_get_wtick());
+	double time1 = omp_get_wtime();
+	double timeUsed = time1 - time0;
+	printf("Total time taken is:%lf\n",timeUsed);
+	printf("Volume found to be %f\n",volume);
+	printf("With time precision %g\n\n\n", omp_get_wtick());
 }
