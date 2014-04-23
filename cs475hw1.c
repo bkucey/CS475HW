@@ -60,12 +60,12 @@ float Height( int iu, int iv )	// iu,iv = 0 .. NUMS-1
 
 int main( int argc, char *argv[ ] )
 {
-    printf("With values Nums:%d and Numt:%d\n",NUMS,NUMT); 
     omp_set_num_threads(NUMT);
+    printf("With values Nums:%d and Numt:%d\n",NUMS,NUMT); 
     // start the timings. . .
     double time0 = omp_get_wtime();
     
-	// the area of a single full-sized tile:
+	// the area of a single full-sized tile: 
 	float fullTileArea = (  ( (XMAX-XMIN)/(float)(NUMS-1) )  *  ( ( YMAX - YMIN )/(float)(NUMS-1) )  );
 
 	// sum up the weighted heights into the variable "volume"
